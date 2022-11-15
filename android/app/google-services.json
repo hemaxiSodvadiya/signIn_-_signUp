@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "934736319102",
+    "project_id": "login-app-2fc60",
+    "storage_bucket": "login-app-2fc60.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:934736319102:android:74b586dbea524ac8243e2f",
+        "android_client_info": {
+          "package_name": "com.login_app.login_with_email_and_password_miner"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "934736319102-1gvej2p796aq3ii0f2ltosrrsfvcd78g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.login_app.login_with_email_and_password_miner",
+            "certificate_hash": "a09b06700b41d5e491d772da7337861059d13cce"
+          }
+        },
+        {
+          "client_id": "934736319102-ct35pv5p8besieu0ki7id7p9eqt52n50.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCuTFM-P4QEPFd1wnmuJzhM_l4TCGdVcoE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "934736319102-ct35pv5p8besieu0ki7id7p9eqt52n50.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
