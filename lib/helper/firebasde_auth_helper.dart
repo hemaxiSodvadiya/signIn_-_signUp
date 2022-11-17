@@ -21,8 +21,8 @@ class FirebaseAuthHelper {
         case 'admin-restricted-operation':
           print("admin-restricted-operation");
           break;
-        case 'operation-not- allowed':
-          print("operation-not- allowed");
+        case 'operation-not-allowed':
+          print("operation-not-allowed");
           break;
       }
     }
