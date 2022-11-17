@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../common/curve.dart';
@@ -13,80 +14,90 @@ class DashBord extends StatefulWidget {
 class _DashBordState extends State<DashBord> {
   @override
   Widget build(BuildContext context) {
+    User? data = ModalRoute.of(context)!.settings.arguments as User?;
+
     final width = MediaQuery.of(context).size.width;
+    final height = MediaQuery.of(context).size.height;
 
     return Scaffold(
       backgroundColor: Colors.black,
-      body: SingleChildScrollView(
+      appBar: AppBar(
+        backgroundColor: Color(0xffF5820D),
+        title: const Text("Dashboard"),
+        centerTitle: true,
+        actions: [
+          IconButton(
+            onPressed: () async {
+              await FirebaseAuthHelper.firebaseAuthHelper.signOut();
+              Navigator.of(context)
+                  .pushNamedAndRemoveUntil('home_page', (route) => false);
+            },
+            icon: Icon(Icons.logout_outlined),
+          ),
+        ],
+      ),
+      drawer: Drawer(
+        backgroundColor: Colors.black,
         child: Column(
           children: [
-            Stack(
+            const SizedBox(
+              height: 50,
+            ),
+            CircleAvatar(
+              radius: 80,
+              backgroundImage: (data!.photoURL == null)
+                  ? NetworkImage(
+                      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOc9VDs02ZrmIC7pS3WzBTvXl8UrI3jwAOVQ&usqp=CAU")
+                  : NetworkImage("${data.photoURL}"),
+              //     ? NetworkImage("${data!.photoURL}")
+              //       : NetworkImage(
+              //           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOc9VDs02ZrmIC7pS3WzBTvXl8UrI3jwAOVQ&usqp=CAU"),
+              //
+            ),
+            const SizedBox(
+              height: 50,
+            ),
+            const Divider(
+              color: Colors.white,
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Opacity(
-                  opacity: 0.75,
-                  child: CustomPaint(
-                    size: Size(width, (width * 0.69).toDouble()),
-                    //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
-                    painter: RPSCustomPainter(),
-                  ),
+                (data.displayName != null)
+                    ? Text(
+                        "Name :- ${data.displayName}",
+                        style: TextStyle(fontSize: 16, color: Colors.white),
+                      )
+                    : Text(
+                        "Uid :- ${data.uid}",
+                        style:
+                            const TextStyle(fontSize: 16, color: Colors.white),
+                      ),
+                const SizedBox(
+                  height: 20,
                 ),
-                CustomPaint(
-                  size: Size(width, (width * 0.5833333333333334).toDouble()),
-                  //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
-                  painter: RPSCustomPainter(),
-                ),
-                IconButton(
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                  icon: const Icon(
-                    Icons.arrow_back_outlined,
-                    size: 30,
-                  ),
-                ),
+                (data.email != null)
+                    ? Text(
+                        "Email :- ${data.email}",
+                        style:
+                            const TextStyle(fontSize: 16, color: Colors.white),
+                      )
+                    : Text(
+                        "Email :-  --",
+                        style: TextStyle(fontSize: 16, color: Colors.white),
+                      ),
               ],
             ),
-            SizedBox(
-              height: 125,
-            ),
-            Container(
-              alignment: Alignment.center,
-              child: Text(
-                "Welcome",
-                style: TextStyle(
-                    fontSize: 50,
-                    color: Color(0xffFFCB2B),
-                    fontWeight: FontWeight.w900),
-              ),
-            ),
-            SizedBox(
-              height: 125,
-            ),
-            Container(
-              height: 160,
-              child: Stack(
-                children: [
-                  Opacity(
-                    opacity: 0.75,
-                    child: CustomPaint(
-                      size:
-                          Size(width, (width * 0.5833333333333334).toDouble()),
-                      //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
-                      painter: RPSCustomPainter3(),
-                    ),
-                  ),
-                  Opacity(
-                    opacity: 1,
-                    child: CustomPaint(
-                      size: Size(width, (width * 0.58).toDouble()),
-                      //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
-                      painter: RPSCustomPainter2(),
-                    ),
-                  ),
-                ],
-              ),
-            ),
           ],
+        ),
+      ),
+      body: Center(
+        child: Text(
+          "Welcome ${data!.email}",
+          style: TextStyle(fontSize: 30, color: Colors.white),
         ),
       ),
     );
