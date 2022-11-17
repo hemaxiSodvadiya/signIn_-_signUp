@@ -149,8 +149,9 @@ class _LoginState extends State<Login> {
                                 ),
                               );
 
-                              Navigator.of(context)
-                                  .pushReplacementNamed('dashboard');
+                              Navigator.of(context).pushReplacementNamed(
+                                  'dashboard',
+                                  arguments: user);
                             } else {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
