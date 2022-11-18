@@ -12,7 +12,5 @@ A new Flutter project.
 <img src="https://user-images.githubusercontent.com/111499619/201977953-3a1777ae-817b-4c75-a91d-93c684a1a849.png" style=" height:500px; " data-target="animated-image.originalImage"> 
 
 
-<img src="https://user-images.githubusercontent.com/111499619/202646434-3d12a7ba-0442-44a5-9998-a4c6b9c024e8.png" height:500px; " data-target="animated-image.originalImage"> 
-
-<img src="https://user-images.githubusercontent.com/111499619/201978407-2b8f4815-222e-4c1a-b17b-a831ee24ae63.png" style=" height:500px; " data-target="animated-image.originalImage"> 
+<img src="https://user-images.githubusercontent.com/111499619/202646661-c4aad6c8-8be0-4791-a3da-8006d1366783.png" height:500px; " data-target="animated-image.originalImage"> 
 
